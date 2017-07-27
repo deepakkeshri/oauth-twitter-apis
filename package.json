@@ -1,0 +1,46 @@
+{
+  "name": "twitter-practice",
+  "version": "1.0.0",
+  "description": "an application to fetch twitter feeds and update by authenticating user oauth2\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "twitter",
+    "oauth2",
+    "feeds"
+  ],
+  "dependencies": {
+    "@angular/animations": "^4.3.1",
+    "@angular/cdk": "^2.0.0-beta.8",
+    "@angular/material": "^2.0.0-beta.8",
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-aria": "^1.6.5",
+    "angular-material": "^1.1.4",
+    "angular-route": "^1.6.5",
+    "base-64": "^0.1.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "http": "0.0.0",
+    "jsonwebtoken": "^7.4.0",
+    "mongoose": "^4.9.7",
+    "mongoose-title-case": "0.0.4",
+    "mongoose-validator": "^1.2.5",
+    "morgan": "^1.8.1",
+    "nodemailer": "^4.0.1",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "nodemon": "^1.11.0",
+    "oauth": "^0.9.15",
+    "passport": "^0.3.2",
+    "passport-twitter": "^1.0.4",
+    "sync": "^0.2.5",
+    "twitter": "^1.7.1"
+  },
+  "author": "Deepak Kumar",
+  "license": "ISC"
+}

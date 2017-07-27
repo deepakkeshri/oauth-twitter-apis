@@ -1,0 +1,77 @@
+Dashboard
+
+<div class="page-header">
+
+    <h2>Recent tweets</h2>
+</div>
+
+
+<div flex-gt-sm="50" flex>
+<md-input-container class="md-block" flex-gt-sm>
+    <label>First name</label>
+    <input ng-model="newTweet.text" required>
+    <md-button class="md-primary" ng-click="postTweet()">Tweet</md-button>
+</md-input-container>
+</div>
+
+
+
+<div ng-cloak layout-gt-sm="row" layout="column">
+
+    <div flex-gt-sm="60" flex>
+
+        <md-toolbar layout="row" class="md-hue-3">
+            <div class="md-toolbar-tools">
+                <span>Tweets</span>
+            </div>
+        </md-toolbar>
+
+        <md-content>
+            <md-list flex>
+                <md-subheader class="md-no-sticky">{{items.length}} tweets</md-subheader>
+                <md-list-item class="md-3-line" ng-repeat="item in items" ng-click="showTweet(item)">
+                    <img ng-src="{{item.user.profile_image_url_https}}" class="md-avatar" alt="{{item.user.name}}" />
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ item.user.name }}</h3>
+                        <h4>{{ item.what }}</h4>
+                        <p>{{ item.text }}</p>
+                        <p>{{ item.favorite_count }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+
+    <md-divider></md-divider>
+    <md-divider></md-divider>
+    <md-divider></md-divider>
+
+
+    <div flex-gt-sm="40" flex >
+
+        <md-card md-theme="dark-grey" md-theme-watch ng-show="currentTweet">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{currentTweet.user.name}}</span>
+                    <span class="md-subhead">@{{currentTweet.user.screen_name}}</span>
+                    <span class="md-subhead">{{currentTweet.text}}</span>
+                </md-card-title-text>
+
+                <md-card-title-media>
+                    <div class="md-media-lg card-media">
+                        <img ng-src="{{currentTweet.user.profile_image_url_https}}" class="md-avatar" alt="{{currentTweet.user.name}}" />
+                    </div>
+                </md-card-title-media>
+
+            </md-card-title>
+            <md-card-actions layout="row" layout-align=" center">
+                <md-button class="md-icon-button md-accent" aria-label="Favorite" ng-click="makeFavorite(currentTweet)">
+                    <md-icon md-svg-icon="assets/img/favorite.svg"></md-icon>
+                </md-button>
+                {{currentTweet.favorite_count}}
+            </md-card-actions>
+        </md-card>
+    </div>
+
+</div>
+

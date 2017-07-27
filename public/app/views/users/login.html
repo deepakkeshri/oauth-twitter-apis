@@ -1,0 +1,36 @@
+<div class="jumbotron">
+
+    <div class="row show-hide-message" ng-show="login.successMessage">
+        <div class="alert alert-success">{{ login.successMessage }}</div>
+    </div>
+
+    <div class="row show-hide-message"  ng-show="login.errorMessage">
+        <div class="alert alert-danger">{{ login.errorMessage }}</div>
+        <a href="/resend" class="btn btn-info" ng-show="login.expired" ng-click="">Resend Activation link</a>
+    </div>
+
+    <div class="row show-hide-message" ng-show="twitter.successMessage">
+        <div class="alert alert-success">{{ twitter.successMessage }}</div>
+    </div>
+
+    <div class="row show-hide-message"  ng-show="twitter.errorMessage">
+        <div class="alert alert-danger">{{ twitter.errorMessage }}</div>
+    </div>
+
+    <h2>Login</h2>
+</div>
+
+<div>
+    <form class="form-signin" name="loginForm" ng-submit="loginUser(regData)">
+
+        <button type="button" class="btn btn-warning" ng-click="twitterLogin();">Twitter</button>
+
+    </form>
+
+</div>
+
+<div class="jumbotron text-center" ng-show="login.loading">
+    <span class="glyphicon glyphicon-repeat spinner"></span>
+    <p>Loading...</p>
+</div>
+
