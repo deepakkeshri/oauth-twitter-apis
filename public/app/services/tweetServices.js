@@ -8,13 +8,13 @@ angular.module("tweetServices",[])
 
         tweetFactory.showTweet = function(data) {
             var url = "/api/twitter/tweet/";
-            return $http.get(url + data.id);
+            return $http.get(url + data.id_str);
         };
 
         //upvote favourites
         tweetFactory.makeFavorite = function(data) {
             var url = "/api/twitter/makeFavorite/";
-            return $http.post(url + data.id);
+            return $http.post(url + data.id_str);
         };
 
         tweetFactory.postTweet = function(data) {

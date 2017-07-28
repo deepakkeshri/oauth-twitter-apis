@@ -49,7 +49,7 @@ module.exports = function(app, passport) {
 
     function getTweet(id, cb) {
 
-        var url = "https://api.twitter.com/1.1/statuses/show/" + id;
+        var url = "https://api.twitter.com/1.1/statuses/show.json?id=" + id;
         console.log(url);
 
         oa.get(
@@ -75,12 +75,12 @@ module.exports = function(app, passport) {
     }
 
     function makeFavorite(id, cb) {
-        var url = "https://api.twitter.com/1.1/favorites/create?id=" + id;
+        var url = "https://api.twitter.com/1.1/favorites/create.json?id=" + id;
         console.log(url);
         oa.post(
             url,
-            user.token1  ,
-            user.tokenSecret1 ,
+            user.token  ,
+            user.tokenSecret ,
             {},
             cb
         );
@@ -116,7 +116,7 @@ module.exports = function(app, passport) {
                 res.json(error);
             }
             else {
-                res.json(data);
+                res.end(data);
             }
         });
     });
@@ -159,8 +159,8 @@ module.exports = function(app, passport) {
             callbackURL: "http://localhost:3000/authn/twitter/callback"
         },
         function(token, tokenSecret, profile, done) {
-            user.token1 = token;
-            user.tokenSecret1 = tokenSecret;
+            user.token = token;
+            user.tokenSecret = tokenSecret;
             user.profile = profile;
             done(null, user);
         }
